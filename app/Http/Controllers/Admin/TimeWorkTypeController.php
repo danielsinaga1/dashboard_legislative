@@ -7,7 +7,7 @@ use App\Http\Requests\MassDestroyTimeWorkTypeRequest;
 use App\Http\Requests\StoreTimeWorkTypeRequest;
 use App\Http\Requests\UpdateTimeWorkTypeRequest;
 use App\TimeWorkType;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 

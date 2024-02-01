@@ -74,9 +74,7 @@
                                     {{-- <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"> --}}
 
                                     <p>
-                                        {{auth()->user()->name}} - {{auth()->user()->job->name}}
-
-                                        <small>{{auth()->user()->dept->name}}</small>
+                                        {{auth()->user()->name}}
 
                                         {{-- <small>Member since Nov. 2012</small> --}}
                                     </p>

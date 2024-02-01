@@ -16,7 +16,7 @@ Route::get('/home', function () {
 Auth::routes(['register' => false]);
 // Admin
 
-Route::group(['prefix' => 'irms', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'project', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('user-alerts/read', 'UserAlertsController@read');
     Route::get('incident-reports/read', 'IncidentReportController@read');
@@ -94,35 +94,7 @@ Route::group(['prefix' => 'irms', 'as' => 'admin.', 'namespace' => 'Admin', 'mid
     Route::delete('origin-departments/destroy', 'OriginDepartmentController@massDestroy')->name('origin-departments.massDestroy');
     Route::resource('origin-departments', 'OriginDepartmentController');
 
-    // Job Titles
-    Route::delete('job-titles/destroy', 'JobTitleController@massDestroy')->name('job-titles.massDestroy');
-    Route::resource('job-titles', 'JobTitleController');
 
-    // Incident Reports
-    Route::delete('incident-reports/destroy', 'IncidentReportController@massDestroy')->name('incident-reports.massDestroy');
-    Route::post('incident-reports/media', 'IncidentReportController@storeMedia')->name('incident-reports.storeMedia');
-    Route::post('incident-reports/ckmedia', 'IncidentReportController@storeCKEditorImages')->name('incident-reports.storeCKEditorImages');
-    Route::post('incident-reports/parse-csv-import', 'IncidentReportController@parseCsvImport')->name('incident-reports.parseCsvImport');
-    Route::post('incident-reports/process-csv-import', 'IncidentReportController@processCsvImport')->name('incident-reports.processCsvImport');
-    Route::resource('incident-reports', 'IncidentReportController');
-
-
-// My Incident Reports
-Route::delete('my-incident-reports/destroy', 'MyIncidentReportController@massDestroy')->name('my-incident-reports.massDestroy');
-Route::post('my-incident-reports/media', 'MyIncidentReportController@storeMedia')->name('my-incident-reports.storeMedia');
-Route::post('my-incident-reports/ckmedia', 'MyIncidentReportController@storeCKEditorImages')->name('my-incident-reports.storeCKEditorImages');
-Route::post('my-incident-reports/parse-csv-import', 'MyIncidentReportController@parseCsvImport')->name('my-incident-reports.parseCsvImport');
-Route::post('my-incident-reports/process-csv-import', 'MyIncidentReportController@processCsvImport')->name('my-incident-reports.processCsvImport');
-Route::resource('my-incident-reports', 'MyIncidentReportController');
-
-// Task Incident Reports
-Route::get('task-incident-reports/{task_incident_report}/actionByExecutor',  'TaskIncidentReportController@actionByExecutor')->name('task-incident-reports.actionByExecutor');
-Route::delete('task-incident-reports/destroy', 'TaskIncidentReportController@massDestroy')->name('task-incident-reports.massDestroy');
-Route::post('task-incident-reports/media', 'TaskIncidentReportController@storeMedia')->name('task-incident-reports.storeMedia');
-Route::post('task-incident-reports/ckmedia', 'TaskIncidentReportController@storeCKEditorImages')->name('task-incident-reports.storeCKEditorImages');
-Route::post('task-incident-reports/parse-csv-import', 'TaskIncidentReportController@parseCsvImport')->name('task-incident-reports.parseCsvImport');
-Route::post('task-incident-reports/process-csv-import', 'TaskIncidentReportController@processCsvImport')->name('task-incident-reports.processCsvImport');
-Route::resource('task-incident-reports', 'TaskIncidentReportController');
 
 
 

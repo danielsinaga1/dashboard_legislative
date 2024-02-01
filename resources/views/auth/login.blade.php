@@ -32,12 +32,12 @@
                 @endif
             </div> --}}
 
-            <div class="form-group{{ $errors->has('npk') ? ' has-error' : '' }}">
-                <input id="npk" type="text" name="npk" class="form-control" required autofocus placeholder="{{ trans('global.login_npk') }}" value="{{ old('npk', null) }}">
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <input id="email" type="text" name="email" class="form-control" required autofocus placeholder="{{ trans('global.login_email') }}" value="{{ old('email', null) }}">
 
-                @if($errors->has('npk'))
+                @if($errors->has('email'))
                     <p class="help-block">
-                        {{ $errors->first('npk') }}
+                        {{ $errors->first('email') }}
                     </p>
                 @endif
             </div>

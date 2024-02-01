@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use App\Rules\MatchOldPassword;
 use App\Http\Requests\ChangePasswordRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateUserRequest;
 
 class ProfileController extends Controller
 {
@@ -35,14 +36,14 @@ class ProfileController extends Controller
 
     public function display($id) {
         $auth = Auth::user()->id;
-        $users=\App\users::all()->whereNotIn('id',$auth);
-        $tampilkan = Users::find($id);
-     return view('tampilkan', compact('tampilkan', 'users')); 
+        $users=User::all()->whereNotIn('id',$auth);
+        $tampilkan = User::find($id);
+     return view('tampilkan', compact('tampilkan', 'users'));
     }
-    
-    
+
+
     public function changePassword2(Request $request) {
-        
+
 
         if(!(Hash::check($request->get('password'), Auth::user()->password))) {
             return redirect()->back()->with("error", "Your current Password does not matches with the password you provided. Please try again.");
@@ -79,7 +80,7 @@ class ProfileController extends Controller
             return response()->json(['errors' => ['current'=> ['Current password does not match!']]],422);
         }
 
-        $user->password = Hash::make($request-password);
+        $user->password = Hash::make($request->password);
         $user->save();
 
         return $user;
@@ -92,10 +93,10 @@ class ProfileController extends Controller
             } else {
                 return redirect()->back()->with('alert-danger', 'Incorrect Details !');
             }
-        }  
+        }
         return redirect()->back()->with('alert-success','Password changed successfully !');
     }
- 
+
     public function changePassword(Request $request) {
 
         $request->validate([

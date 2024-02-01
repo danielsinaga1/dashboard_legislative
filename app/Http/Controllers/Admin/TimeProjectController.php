@@ -7,7 +7,7 @@ use App\Http\Requests\MassDestroyTimeProjectRequest;
 use App\Http\Requests\StoreTimeProjectRequest;
 use App\Http\Requests\UpdateTimeProjectRequest;
 use App\TimeProject;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 

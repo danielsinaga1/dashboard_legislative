@@ -9,7 +9,7 @@ use App\Http\Requests\UpdateTimeEntryRequest;
 use App\TimeEntry;
 use App\TimeProject;
 use App\TimeWorkType;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 

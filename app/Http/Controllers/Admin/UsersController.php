@@ -32,9 +32,6 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
-        $jobs = JobTitle::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $depts = OriginDepartment::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $parents = User::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -56,10 +53,6 @@ class UsersController extends Controller
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $roles = Role::all()->pluck('title', 'id');
-
-        $jobs = JobTitle::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $depts = OriginDepartment::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $parents = User::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 

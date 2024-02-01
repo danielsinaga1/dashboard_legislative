@@ -32,7 +32,6 @@ class User extends Authenticatable
     ];
 
     protected $fillable = [
-        'npk',
         'name',
         'email',
         'job_id',

@@ -7,14 +7,14 @@ use App\Http\Requests\StoreUserParentRequest;
 use App\Http\Requests\UpdateUserParentRequest;
 use App\User;
 use App\UserParent;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserParentController extends Controller
 {
-    
+
     public function index()
     {
         abort_if(Gate::denies('user_parent_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -56,7 +56,7 @@ class UserParentController extends Controller
     {
         abort_if(Gate::denies('user_parent_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         // $result->load('resultIncidentReports');
-        
+
         return view('admin.userParents.show');
     }
 

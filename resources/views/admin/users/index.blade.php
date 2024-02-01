@@ -28,9 +28,6 @@
                                         {{ trans('cruds.user.fields.id') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.user.fields.npk') }}
-                                    </th>
-                                    <th>
                                         {{ trans('cruds.user.fields.name') }}
                                     </th>
                                     <th>
@@ -65,18 +62,14 @@
                                         <td>
                                             {{ $user->id ?? '' }}
                                         </td>
-                                        <td>
-                                            {{ $user->npk ?? '' }}
-                                        </td>
+
                                         <td>
                                             {{ $user->name ?? '' }}
                                         </td>
                                         <td>
                                             {{ $user->email ?? '' }}
                                         </td>
-                                        <!-- <td>
                                             {{ $user->email_verified_at ?? '' }}
-                                        </td> -->
                                         <td>
                                             @foreach($user->roles as $key => $item)
                                                 <span class="label label-info label-many">{{ $item->title }}</span>
